@@ -1,0 +1,27 @@
+<form style="padding: 50px" class="p-5" #form="ngForm">
+  <div class="container mx-auto">
+    <div class="upload-card mt-4">
+      <h3 class="f-18 pb-3 pt-2 text-center bold">העלאת קובץ</h3>
+      <ngx-file-drop class="light-grey-bg" (onFileDrop)="fileDropped($event)">
+        <ng-template ngx-file-drop-content-tmp let-openFileSelector="openFileSelector">
+          <div>
+            <!--          <img src="assets/images/upload-img.png">-->
+            <p class="h3 text-black pb-2">Drag & Drop</p>
+            <p class="text-black-50">
+              <span>your files or </span>
+              <span class="pointer underline blue-text" (click)="openFileSelector()">browse</span>
+            </p>
+            <p>{{ file ? file.name : '' }}</p>
+          </div>
+        </ng-template>
+      </ngx-file-drop>
+    </div>
+    <h3 *ngIf="success">הקובץ הועלה בהצלחה</h3>
+    <div class="mt-3">
+      <button [disabled]="!file" (click)="upload.emit(file)" mat-button class="green-btn">העלה קובץ</button>
+      <p class="pbutton" (click)="submit(file, form)">העלה קובץ</p>
+    </div>
+  </div>
+</form>
+
+

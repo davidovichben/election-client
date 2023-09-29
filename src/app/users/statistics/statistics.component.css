@@ -1,0 +1,26 @@
+/* user-stance-statistics.component.css */
+
+.statistics-container {
+  display: flex;
+  justify-content: space-around;
+  padding: 20px;
+  border-radius: 5px;
+}
+
+.statistic {
+  text-align: center;
+  padding: 15px 50px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  box-shadow: 0 0 3px rgba(0, 0, 0, 0.1);
+}
+
+.count {
+  font-size: 24px;
+  color: white;
+}
+
+.label {
+  font-size: 16px;
+  color: #ffffff;
+}

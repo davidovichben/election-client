@@ -1,1 +1,81 @@
-/* You can add global styles to this file, and also import other style files */
+html, body {
+  height: 100%;
+  background-color: #d7d7d7
+}
+
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; direction: rtl }
+
+.button-primary {
+  width: fit-content;
+  padding: 5px;
+  background-color: #575757;
+  color: #ebebeb;
+}
+
+.pointer {
+  cursor: pointer;
+}
+
+.underline {
+  text-decoration: underline;
+}
+
+
+.green {
+  background-color: #356526;
+  color: white;
+}
+
+.red {
+  background-color: #b32a2a;
+  color: white;
+}
+
+.yellow {
+  background-color: #c79c00;
+  color: white;
+}
+
+
+.pbutton {
+  text-align: center;
+  width: fit-content;
+  min-width: 100px;
+  background-color: #083267;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  padding: 10px 20px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.bold {
+  font-weight: bold !important;
+}
+
+.d-flex {
+  display: flex;
+}
+
+.align-center {
+  align-items: center;
+}
+
+.justify-content-between {
+  justify-content: space-between;
+}
+
+.ml-2 {
+  margin-left: 20px !important;
+}
+
+.title {
+  font-size: 40px;
+  margin-top: 100px !important;
+  color: #083267;
+}

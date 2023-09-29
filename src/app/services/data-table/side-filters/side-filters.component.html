@@ -1,0 +1,20 @@
+<form #form="ngForm" (ngSubmit)="search()">
+  <ng-container *ngFor="let column of columns; let index = index">
+    <mat-form-field *ngIf="!column.searchOptions" class="search-field" appearance="outline">
+      <input matInput type="text" [placeholder]="column.label" [name]="column.name" ngModel>
+    </mat-form-field>
+    <mat-form-field *ngIf="column.searchOptions" appearance="outline" color="primary" class="search-field">
+      <mat-label>{{ column.label }}</mat-label>
+      <mat-select [placeholder]="column.label" [name]="column.name" ngModel>
+        <mat-option *ngFor="let option of column.searchOptions" [value]="option.value">{{ option.label }}</mat-option>
+      </mat-select>
+    </mat-form-field>
+  </ng-container>
+  <button type="submit" style="display: none;"></button>
+</form>
+
+<div>
+  <span (click)="reset()" id="resetButton">נקה שדות</span>
+  <span (click)="search()" id="searchButton">חיפוש</span>
+</div>
+

@@ -1,0 +1,35 @@
+:host {
+  display: flex;
+  justify-content: center;
+}
+
+.container {
+  width: 510px;
+}
+
+.dialog-width {
+  width: 460px !important;
+}
+
+.upload-card {
+  background-color: white;
+  border: 10px solid #083267;
+  padding: 15px;
+}
+
+::ng-deep .ngx-file-drop__drop-zone {
+  border-radius: 0 !important;
+  border: none !important;
+  height: 320px !important;
+  background-color: #9ea5bf;
+  text-align: center;
+}
+
+::ng-deep .ngx-file-drop__content {
+  height: 300px !important;
+}
+
+.text-black {
+  color: black !important;
+  font-weight: 400;
+}
