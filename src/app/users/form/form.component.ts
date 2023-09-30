@@ -10,10 +10,10 @@ import {Router} from "@angular/router";
 export class FormComponent {
   constructor(private userService: UserService, private router: Router) {}
 
-  userId: string = '';
+  userId = '';
   user: any = null;
-  voted: boolean = false;
-  showNotFoundMessage: boolean = false;
+  voted = false;
+  showNotFoundMessage = false;
 
   getUserDetails(): void {
     this.userService.getUser(+this.userId).then(response => {
@@ -26,19 +26,6 @@ export class FormComponent {
       }
     })
 
-  }
-
-  getStanceName(stance: string): string {
-    switch (stance) {
-      case 'supporter':
-        return 'תומך';
-      case 'opponent':
-        return 'מתנגד';
-      case 'undecided':
-        return 'לא ידוע';
-      default:
-        return '';
-    }
   }
 
   submitForm(): void {

@@ -9,9 +9,10 @@ export class StatisticsComponent {
 
   @Input() stats: any;
 
-  supportersCount: number = 0;
-  undecidedCount: number = 0;
-  opponentsCount: number = 0;
+  supportersCount = 0;
+  undecidedCount = 0;
+  opponentsCount = 0;
+  abstainersCount = 0;
 
   constructor() { }
 
@@ -23,5 +24,6 @@ export class StatisticsComponent {
     this.supportersCount = this.stats.supporter ?? 0;
     this.undecidedCount = this.stats.undecided ?? 0;
     this.opponentsCount = this.stats.opponent ?? 0;
-  };
+    this.abstainersCount = this.stats.abstainer ?? 0;
+  }
 }

@@ -8,7 +8,7 @@
       <span>{{ 'רשומות' }}</span>
     </span>
   </div>
-  <ul class="justify-content-center pagination">
+  <ul class="d-flex justify-content-center pagination" (click)="scrollToTop()">
     <li class="page-item" [ngClass]="{ disabled: data.currentPage <= 1 }">
       <a class="page-link" routerLink="./" [queryParams]="{ page: 1 }">
         <i class="la la-angle-double-right"></i>

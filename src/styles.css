@@ -26,6 +26,11 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; direction: 
   color: white;
 }
 
+.grey {
+  background-color: #5e5e5e;
+  color: white;
+}
+
 .red {
   background-color: #b32a2a;
   color: white;

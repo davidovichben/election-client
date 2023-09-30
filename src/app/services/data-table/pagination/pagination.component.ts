@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, Renderer2 } from '@angular/core';
 
 import { PaginationData } from '../classes/pagination-data';
 
@@ -8,6 +8,8 @@ import { PaginationData } from '../classes/pagination-data';
 	styleUrls: [ './pagination.component.css']
 })
 export class PaginationComponent {
+
+  constructor(private renderer: Renderer2) {}
 
 	// @ts-ignore
   @Input() data: PaginationData;
@@ -36,4 +38,8 @@ export class PaginationComponent {
 
 	 	return max;
 	}
+
+  scrollToTop() {
+    this.renderer.setProperty(document.documentElement, 'scrollTop', 0);
+  }
 }

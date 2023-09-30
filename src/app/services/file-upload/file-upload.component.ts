@@ -14,7 +14,7 @@ export class FileUploadComponent {
 
   @Input() validExtensions = ['text', 'jpg', 'jpeg', 'png', 'xlsx', 'xls', 'doc', 'docx', 'csv', 'pdf'];
 
-  success: boolean = false;
+  success = false;
   isDialog = false;
 
   @Output() upload = new EventEmitter<File>();

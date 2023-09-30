@@ -3,13 +3,14 @@ import { HttpHeaders, HttpParams } from '@angular/common/http';
 
 
 import { DataTableCriteria } from 'src/app/services/data-table/classes/data-table-criteria';
-import {UserSessionService} from "./user-session.service";
+import {UserSessionService} from './user-session.service';
+import { environment } from 'src/environment/environment';
+
 
 @Injectable()
 export abstract class BaseHttpService {
 
-  // readonly apiUrl = 'http://18.156.130.243/api/';
-  readonly apiUrl = 'http://localhost:8000/api/';
+  readonly apiUrl = environment.apiUrl;
 
   protected constructor(protected userSession?: UserSessionService) {}
 

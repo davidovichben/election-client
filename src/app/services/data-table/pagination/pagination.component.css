@@ -8,10 +8,12 @@ span {
 }
 
 .page-link {
-	margin-left: 0;
-	border-radius: 0 !important;
-	border-color: #505050;
-	color: #575757;
+  margin-left: 0;
+  border-radius: 0 !important;
+  border-color: #505050;
+  padding: 9px;
+  font-size: 20px;
+  color: #575757;
 }
 
 .page-link:focus {

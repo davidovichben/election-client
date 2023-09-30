@@ -24,12 +24,22 @@
       </mat-form-field>
     </td>
     <td [class]="getStanceClass(item.stance)" class="text-center">
-      <mat-form-field appearance="outline" color="primary" class="search-field">
-        <mat-select (selectionChange)="updateUser('stance', $event.value, item.id)" [placeholder]="getStanceName(item.stance)">
-          <mat-option *ngFor="let option of StanceSelect" [value]="option.value">{{ option.label }}</mat-option>
-        </mat-select>
-      </mat-form-field>
+      <div class="d-flex justify-content-center">
+        <div class="form-check ml-2" *ngFor="let option of StanceSelect">
+          <input
+            type="radio"
+            class="form-check-input"
+            [id]="option.value"
+            [name]="'stance_' + item.id"
+            [value]="option.value"
+            [checked]="item.stance === option.value"
+            (change)="updateUser('stance', option.value, item.id)"
+          />
+          <label class="form-check-label" [for]="option.value">{{ option.label }}</label>
+        </div>
+      </div>
     </td>
+
     <td class="text-center">
       <mat-form-field>
         <input matInput type="text" [(ngModel)]="item.referrer" (keyup.enter)="updateUser('referrer', item.referrer, item.id)">

@@ -1,8 +1,12 @@
 import { Component, ViewChild } from '@angular/core';
-import { DataTableComponent } from "../services/data-table/data-table.component";
-import { ActivatedRoute } from "@angular/router";
-import { UserService } from "../http/services/user.service";
-import {Stance, StanceSelect, VotedSelect} from "../models/user.model";
+import { ActivatedRoute } from '@angular/router';
+
+import { DataTableComponent } from 'src/app/services/data-table/data-table.component';
+
+import { UserService } from 'src/app/http/services/user.service';
+
+import { StanceSelect, VotedSelect } from 'src/app/models/user.model';
+
 @Component({
   selector: 'app-users',
   templateUrl: './users.component.html',
@@ -55,19 +59,8 @@ export class UsersComponent {
         return 'red';
       case 'undecided':
         return 'yellow';
-      default:
-        return '';
-    }
-  }
-
-  getStanceName(stance: string): string {
-    switch (stance) {
-      case 'supporter':
-        return 'תומך';
-      case 'opponent':
-        return 'מתנגד';
-      case 'undecided':
-        return 'לא ידוע';
+      case 'abstainer':
+        return 'grey';
       default:
         return '';
     }
