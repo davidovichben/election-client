@@ -6,6 +6,7 @@
   <div class="d-flex">
     <p class="pbutton ml-2" routerLink="./upload">העלאת אקסל</p>
     <p class="pbutton ml-2" routerLink="./form">עדכון מצביע</p>
+    <p class="pbutton ml-2" (click)="exportVoters()">יצוא לאקסל</p>
   </div>
 </div>
 <app-data-table tableUrl="users" [columns]="columns" [hasCheckColumn]="false" [hasActionsHeader]="false" (fetchItems)="fetchItems()">

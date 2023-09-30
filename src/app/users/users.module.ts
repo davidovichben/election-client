@@ -9,6 +9,7 @@ import { UserSessionService } from "../http/services/user-session.service";
 import { MatChipsModule } from "@angular/material/chips";
 import { StatsResolve } from "../reloves/stats.resolve";
 import { StatisticsModule } from "./statistics/statistics.module";
+import { VoterFileService } from 'src/app/http/services/voter-file.service';
 
 const routes: Routes = [
   {
@@ -36,6 +37,6 @@ const routes: Routes = [
     DataTableModule,
     StatisticsModule
   ],
-  providers: [UserService, HttpClient, UserSessionService, StatsResolve]
+  providers: [UserService, HttpClient, UserSessionService, StatsResolve, VoterFileService]
 })
 export class UsersModule { }

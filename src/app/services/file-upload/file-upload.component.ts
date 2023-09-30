@@ -1,7 +1,7 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { FileSystemFileEntry, NgxFileDropEntry } from 'ngx-file-drop';
 import {NgForm} from "@angular/forms";
-import {ClientFileService} from "../../http/services/client-file.service";
+import {VoterFileService} from "src/app/http/services/voter-file.service";
 
 // import { NotificationService } from 'src/app/shared/_services/generic/notification.service';
 
@@ -23,7 +23,7 @@ export class FileUploadComponent {
   // @ts-ignore
   file: File;
 
-  constructor(private clientFileService: ClientFileService) {}
+  constructor(private voterFileService: VoterFileService) {}
 
   fileDropped(files: NgxFileDropEntry[]): void {
     this.success = false;
@@ -48,7 +48,7 @@ export class FileUploadComponent {
   submit(file: File, form: NgForm): void {
     this.success = false;
     if (form.valid && file) {
-      this.clientFileService.uploadClientFile(file, form.value).then(response => {
+      this.voterFileService.uploadVoterFile(file, form.value).then(response => {
         this.success = true;
 
         if (response) {

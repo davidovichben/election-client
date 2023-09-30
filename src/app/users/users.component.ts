@@ -6,6 +6,7 @@ import { DataTableComponent } from 'src/app/services/data-table/data-table.compo
 import { UserService } from 'src/app/http/services/user.service';
 
 import { StanceSelect, VotedSelect } from 'src/app/models/user.model';
+import { VoterFileService } from 'src/app/http/services/voter-file.service';
 
 @Component({
   selector: 'app-users',
@@ -31,7 +32,11 @@ export class UsersComponent {
 
   stats: any;
 
-  constructor(private route: ActivatedRoute,
+
+  protected readonly StanceSelect = StanceSelect;
+  protected readonly VotedSelect = VotedSelect;
+
+  constructor(private route: ActivatedRoute, private voterFileService: VoterFileService,
               private userService: UserService) {}
 
   ngOnInit(): void {
@@ -78,6 +83,23 @@ export class UsersComponent {
     })
   }
 
-  protected readonly StanceSelect = StanceSelect;
-  protected readonly VotedSelect = VotedSelect;
+  exportVoters() {
+    this.voterFileService.exportVotersExcel()
+      .then((file: File | null) => {
+        if (file) {
+          const blobUrl = URL.createObjectURL(file);
+
+          const a = document.createElement('a');
+          a.href = blobUrl;
+          a.download = 'voters.xlsx';
+          a.click();
+          URL.revokeObjectURL(blobUrl);
+        } else {
+          console.error('Export failed or returned null.');
+        }
+      })
+      .catch((error) => {
+        console.error('Export error:', error);
+      });
+  }
 }

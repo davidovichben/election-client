@@ -6,7 +6,7 @@ import {FileUploadComponent} from "./file-upload.component";
 import {RouterModule, Routes} from "@angular/router";
 import {MatInputModule} from "@angular/material/input";
 import {FormsModule} from "@angular/forms";
-import {ClientFileService} from "../../http/services/client-file.service";
+import {VoterFileService} from "src/app/http/services/voter-file.service";
 
 const routes: Routes = [
   {
@@ -26,6 +26,6 @@ const routes: Routes = [
     FormsModule,
   ],
   exports: [FileUploadComponent],
-  providers: [ClientFileService]
+  providers: [VoterFileService]
 })
 export class FileUploadModule {}
