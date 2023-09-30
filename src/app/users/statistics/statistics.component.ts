@@ -1,9 +1,10 @@
-import {Component, Input} from '@angular/core';
+import { Component, Input, ChangeDetectionStrategy } from '@angular/core';
 
 @Component({
   selector: 'app-statistics',
   templateUrl: './statistics.component.html',
-  styleUrls: ['./statistics.component.css']
+  styleUrls: ['./statistics.component.css'],
+  changeDetection: ChangeDetectionStrategy.Default
 })
 export class StatisticsComponent {
 
@@ -18,6 +19,7 @@ export class StatisticsComponent {
 
   ngOnInit(): void {
     if (!this.stats) {
+
       return;
     }
 

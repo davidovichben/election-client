@@ -1,18 +1,18 @@
 <div class="statistics-container">
   <div class="statistic green">
-    <div class="count">{{ supportersCount }}</div>
+    <div class="count">{{ stats.supporter ?? 0 }}</div>
     <div class="label">תומכים</div>
   </div>
   <div class="statistic red">
-    <div class="count">{{ opponentsCount }}</div>
+    <div class="count">{{ stats.opponent ?? 0 }}</div>
     <div class="label">מתנגדים</div>
   </div>
   <div class="statistic yellow">
-    <div class="count">{{ undecidedCount }}</div>
+    <div class="count">{{ stats.undecided ?? 0 }}</div>
     <div class="label">לא ידוע</div>
   </div>
   <div class="statistic grey">
-    <div class="count">{{ abstainersCount }}</div>
+    <div class="count">{{ stats.abstainer ?? 0 }}</div>
     <div class="label">נמנע</div>
   </div>
 </div>
