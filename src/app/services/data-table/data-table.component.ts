@@ -131,14 +131,28 @@ export class DataTableComponent implements OnInit, OnDestroy {
   // @ts-ignore
   searchFilters(event) {
     Object.entries(event).forEach(([key, value]) => {
+
+      this.resetPage();
       // @ts-ignore
       this.criteria.filters[key] = value;
-      console.log(key)
-      console.log(value)
 
     });
     // @ts-ignore
     this.search();
+  }
+
+  resetPage() {
+    const updatedQueryParams = { page: 1 };
+
+    this.router.navigate([], {
+      relativeTo: this.route,
+      queryParams: updatedQueryParams,
+      queryParamsHandling: 'merge',
+    }).then(() => {
+      // @ts-ignore
+      this.criteria.page = (this.route.snapshot.queryParams.page) ? +this.route.snapshot.queryParams.page : 1;
+      this.paginationData.currentPage = this.criteria.page;
+    });
   }
 
   search(keyword?: string, event?: KeyboardEvent): void {
@@ -147,15 +161,12 @@ export class DataTableComponent implements OnInit, OnDestroy {
         if (col.isSearchable) {
           // @ts-ignore
           this.criteria[col] = 'sdf';
-          console.log(col)
         }
       })
 
       this.criteria.keyword = keyword ?? '';
       this.loadItems();
 
-
-      console.log(this.criteria)
       sessionStorage.setItem(this.tableUrl + '_criteria', JSON.stringify(this.criteria));
     }
   }
