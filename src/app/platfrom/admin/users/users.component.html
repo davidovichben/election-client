@@ -1,0 +1,16 @@
+<div style="margin-right: 60px; margin-top: 40px" class="mb-3 flex-between">
+  <p class="bold title">{{ 'מצביעים' }}</p>
+</div>
+<div style="margin: 30px 35px 0 80px" class="d-flex justify-content-between align-center">
+  <p class="pbutton ml-2" routerLink="./form">הוספת משתמש</p>
+</div>
+<app-data-table tableUrl="VotersModule" [columns]="columns" [hasCheckColumn]="false" [hasActionsHeader]="true" (fetchItems)="fetchItems()">
+  <tr *ngFor="let item of dataTable.items">
+    <td>{{ item.username  }}</td>
+    <td>{{ item.ballotNumber }}</td>
+    <td class="row-actions text-center">
+      <fa-icon (click)="deleteUser(item.id)" class="ml-2 pointer" [icon]="faTrash"></fa-icon>
+<!--      <fa-icon [icon]="faEdit"></fa-icon>-->
+    </td>
+  </tr>
+</app-data-table>
