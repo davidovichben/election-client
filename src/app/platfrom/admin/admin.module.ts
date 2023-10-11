@@ -4,7 +4,6 @@ import { AdminComponent } from 'src/app/platfrom/admin/admin.component';
 import { RouterModule, RouterOutlet, Routes } from '@angular/router';
 import { MatButtonModule } from '@angular/material/button';
 import { MatToolbarModule } from '@angular/material/toolbar';
-import { AdminGuard } from 'src/app/_shared/guards/admin.guard';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 const routes: Routes = [
