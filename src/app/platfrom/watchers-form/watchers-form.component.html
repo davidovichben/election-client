@@ -1,0 +1,24 @@
+<div style="padding: 50px">
+  <div class="d-flex justify-content-between">
+    <h1>פרטי מצביע</h1>
+    <fa-icon class="ml-2 pointer" (click)="signOut()" [icon]="faSignOut">התנתקות</fa-icon>
+  </div>
+  <form #userForm="ngForm" (ngSubmit)="submitForm()">
+    <mat-form-field appearance="outline" class="full-width">
+      <input matInput type="text" id="keyword" name="keyword" [(ngModel)]="keyword" placeholder="מספר זהות \ מספר סידורי" required>
+    </mat-form-field>
+    <p class="pbutton" (click)="getUserDetails()">הצג פרטי מצביע</p>
+    <h3 *ngIf="showNotFoundMessage">לא נמצא מצביע עם מספר זהות זה</h3>
+    <div *ngIf="user" class="user-details">
+      <p><strong>מספר זהות:</strong> {{ user.IDNumber }}</p>
+      <p><strong>שם פרטי:</strong> {{ user.firstName }}</p>
+      <p><strong>שם משפחה:</strong> {{ user.lastName }}</p>
+      <p><strong>שם אב:</strong> {{ user.fatherName }}</p>
+      <p><strong>מספר קלפי:</strong> {{ user.ballotNumber }}</p>
+      <p><strong>מספר סידורי:</strong> {{ user.serialNumber }}</p>
+      <p><strong>הצביע:</strong> {{ user.voted == 1 ? 'כן' : 'לא'}}</p>
+    </div>
+    <mat-checkbox [ngModelOptions]="{ standalone: true }" style="font-size: 18px; margin-top: 15px" class="full-width mt-3" [(ngModel)]="voted">הגיע להצביע</mat-checkbox>
+    <p class="pbutton" (click)="submitForm()">עדכן</p>
+  </form>
+</div>

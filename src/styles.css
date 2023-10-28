@@ -75,6 +75,10 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; direction: 
   justify-content: space-between;
 }
 
+.justify-content-center {
+  justify-content: center;
+}
+
 .ml-2 {
   margin-left: 20px !important;
 }
