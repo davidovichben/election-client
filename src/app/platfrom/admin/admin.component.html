@@ -1,0 +1,12 @@
+<mat-toolbar color="primary">
+  <fa-icon class="ml-2 pointer" (click)="signOut()" [icon]="faSignOut"></fa-icon>
+  <span class="app-title">ממשק ניהול</span>
+  <span class="spacer"></span>
+  <a mat-button routerLink="/admin/users" routerLinkActive="active-link">
+    משתמשים
+  </a>
+  <a mat-button routerLink="/admin/" routerLinkActive="active-link">
+     מצביעים
+  </a>
+</mat-toolbar>
+<router-outlet></router-outlet>

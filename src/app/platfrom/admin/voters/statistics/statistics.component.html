@@ -1,0 +1,20 @@
+<div class="statistics-container">
+  <div class="statistic green">
+    <div class="count">{{ stats.supporter ?? 0 }}</div>
+    <div class="label">תומכים</div>
+    <div class="label bold">חאתם עראף</div>
+  </div>
+  <div class="statistic red">
+    <div class="count">{{ stats.opponent ?? 0 }}</div>
+    <div class="label">מתנגדים</div>
+    <div class="label bold">איליא עבד</div>
+  </div>
+  <div class="statistic yellow">
+    <div class="count">{{ stats.undecided ?? 0 }}</div>
+    <div class="label">לא ידוע</div>
+  </div>
+  <div class="statistic grey">
+    <div class="count">{{ stats.abstainer ?? 0 }}</div>
+    <div class="label">לא מצביעים</div>
+  </div>
+</div>

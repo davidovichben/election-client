@@ -1,0 +1,55 @@
+<div style="margin-right: 60px; margin-top: 40px" class="mb-3 flex-between">
+  <p class="bold title">{{ 'מצביעים' }}</p>
+</div>
+<div style="margin: 30px 35px 0 80px" class="d-flex justify-content-between align-center">
+  <app-statistics [stats]="stats"></app-statistics>
+  <div class="d-flex">
+    <p class="pbutton ml-2" routerLink="./upload">העלאת אקסל</p>
+<!--    <p class="pbutton ml-2" routerLink="./form">עדכון מצביע</p>-->
+    <p class="pbutton ml-2" (click)="exportVoters()">יצוא לאקסל</p>
+  </div>
+</div>
+<app-data-table tableUrl="VotersModule" [columns]="columns" [hasCheckColumn]="false" [hasActionsHeader]="false" (fetchItems)="fetchItems()">
+  <tr *ngFor="let item of dataTable.items">
+    <td>{{ item.serialNumber  }}</td>
+    <td>{{ item.IDNumber }}</td>
+    <td>{{ item.lastName  }}</td>
+    <td>{{ item.firstName }}</td>
+    <td>{{ item.fatherName  }}</td>
+    <td>{{ item.ballotNumber  }}</td>
+    <td class="text-center">
+      <mat-form-field appearance="outline" color="primary" class="search-field">
+        <mat-select (selectionChange)="updateVoter('isVoted', $event.value, item.id)" [placeholder]="item.voted == 0 ? 'לא' : 'כן' ">
+          <mat-option *ngFor="let option of VotedSelect" [value]="option.value">{{ option.label }}</mat-option>
+        </mat-select>
+      </mat-form-field>
+    </td>
+    <td [class]="getStanceClass(item.stance)" class="text-center">
+      <div class="d-flex justify-content-center">
+        <div class="form-check ml-2" *ngFor="let option of StanceSelect">
+          <input
+            type="radio"
+            class="form-check-input"
+            [id]="option.value"
+            [name]="'stance_' + item.id"
+            [value]="option.value"
+            [checked]="item.stance === option.value"
+            (change)="updateVoter('stance', option.value, item.id)"
+          />
+          <label class="form-check-label" [for]="option.value">{{ option.label }}</label>
+        </div>
+      </div>
+    </td>
+
+    <td class="text-center">
+      <mat-form-field>
+        <input matInput type="text" [(ngModel)]="item.referrer" (keyup.enter)="updateVoter('referrer', item.referrer, item.id)">
+      </mat-form-field>
+    </td>
+    <td class="text-center">
+      <mat-form-field>
+        <input matInput type="text" [(ngModel)]="item.comments" (keyup.enter)="updateVoter('comments', item.comments, item.id)">
+      </mat-form-field>
+    </td>
+  </tr>
+</app-data-table>

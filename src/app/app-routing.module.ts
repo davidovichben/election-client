@@ -1,14 +1,22 @@
 import { NgModule } from '@angular/core';
-import { RouterModule, Routes } from '@angular/router';
+import { RouterModule } from '@angular/router';
+import { FormsModule } from '@angular/forms';
+import { CommonModule } from '@angular/common';
+import { BrowserModule } from '@angular/platform-browser';
+import { MatDialogModule } from '@angular/material/dialog';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
-const routes: Routes = [
-  {
-    path: 'users',
-    loadChildren: () => import('./users/users.module').then(m => m.UsersModule),
-  }
-]
+
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [
+    CommonModule,
+    BrowserModule,
+    MatDialogModule,
+    BrowserAnimationsModule,
+    FontAwesomeModule,
+    FormsModule
+  ],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }
