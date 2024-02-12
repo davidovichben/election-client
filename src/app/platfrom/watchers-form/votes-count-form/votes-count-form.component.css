@@ -1,0 +1,45 @@
+.voting-form {
+  max-width: 400px;
+  margin: 10% auto auto;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.form-group {
+  margin-bottom: 15px;
+}
+
+label {
+  display: block;
+  font-weight: bold;
+}
+
+select, button {
+  width: 100%;
+  margin-top: 5px;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+button {
+  background-color: #4CAF50;
+  color: white;
+  cursor: pointer;
+}
+
+button:disabled {
+  background-color: #ddd;
+  cursor: not-allowed;
+}
+
+button + button {
+  margin-top: 10px;
+  background-color: #b04940;
+  color: white !important;
+}
+
+mat-form-field {
+  width: 100%;
+}

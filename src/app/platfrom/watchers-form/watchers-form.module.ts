@@ -14,6 +14,10 @@ const routes: Routes = [
   {
     path: '',
     component: WatchersFormComponent
+  },
+  {
+    path: 'update-votes',
+    loadChildren: () => import('src/app/platfrom/watchers-form/votes-count-form/votes-count-form.module').then(m => m.VotesCountFormModule),
   }
 ]
 

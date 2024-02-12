@@ -1,0 +1,19 @@
+<div *ngFor="let ballot of ballots" class="ballot">
+  <div class="ballot-header">
+    <div class="ballot-number">קלפי {{ ballot.number }}</div>
+  </div>
+
+  <div class="candidates">
+    <div *ngFor="let candidate of ballot.candidates" class="candidate">
+      <div class="candidate-name">{{ candidate.name }}</div>
+      <div class="vote-count">הצבעות: {{ candidate.votes.length }}</div>
+    </div>
+  </div>
+
+  <div class="parties">
+    <div *ngFor="let party of ballot.parties" class="party">
+      <div class="party-name">{{ party.name }}</div>
+      <div class="vote-count">הצבעות: {{ party.votes.length }}</div>
+    </div>
+  </div>
+</div>

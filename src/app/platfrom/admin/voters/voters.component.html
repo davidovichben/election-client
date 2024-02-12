@@ -7,6 +7,7 @@
     <p class="pbutton ml-2" routerLink="./upload">העלאת אקסל</p>
 <!--    <p class="pbutton ml-2" routerLink="./form">עדכון מצביע</p>-->
     <p class="pbutton ml-2" (click)="exportVoters()">יצוא לאקסל</p>
+    <p class="pbutton ml-2" routerLink="./ballots">קלפיות</p>
   </div>
 </div>
 <app-data-table tableUrl="VotersModule" [columns]="columns" [hasCheckColumn]="false" [hasActionsHeader]="false" (fetchItems)="fetchItems()">
