@@ -6,14 +6,14 @@
   <div class="candidates">
     <div *ngFor="let candidate of ballot.candidates" class="candidate">
       <div class="candidate-name">{{ candidate.name }}</div>
-      <div class="vote-count">הצבעות: {{ candidate.votes.length }}</div>
+      <div class="vote-count">הצבעות: {{ candidate.votes }}</div>
     </div>
   </div>
 
   <div class="parties">
     <div *ngFor="let party of ballot.parties" class="party">
       <div class="party-name">{{ party.name }}</div>
-      <div class="vote-count">הצבעות: {{ party.votes.length }}</div>
+      <div class="vote-count">הצבעות: {{ party.votes }}</div>
     </div>
   </div>
 </div>

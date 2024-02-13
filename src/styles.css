@@ -1,6 +1,6 @@
 html, body {
   height: 100%;
-  background-color: #d7d7d7
+  background-color: #ffffff
 }
 
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; direction: rtl }
@@ -22,8 +22,13 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; direction: 
 
 
 .green {
-  background-color: #356526;
+  background-color: #00ca80;
   color: white;
+}
+
+.light-green {
+  background-color: #dbf0dd;
+  color: #30a731;
 }
 
 .grey {
@@ -32,12 +37,12 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; direction: 
 }
 
 .red {
-  background-color: #b32a2a;
+  background-color: #ff5771;
   color: white;
 }
 
 .yellow {
-  background-color: #c79c00;
+  background-color: #ffc800;
   color: white;
 }
 
@@ -46,7 +51,7 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; direction: 
   text-align: center;
   width: fit-content;
   min-width: 100px;
-  background-color: #083267;
+  background-color: #0c4bcc;
   color: white;
   border: none;
   border-radius: 4px;
@@ -86,5 +91,5 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; direction: 
 .title {
   font-size: 40px;
   margin-top: 100px !important;
-  color: #083267;
+  color: #0c4bcc;
 }

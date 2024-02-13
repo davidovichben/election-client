@@ -54,7 +54,7 @@ export class VotersComponent {
   getStanceClass(stance: string): string {
     switch (stance) {
       case 'supporter':
-        return 'green';
+        return 'light-green';
       case 'opponent':
         return 'red';
       case 'undecided':
