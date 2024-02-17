@@ -4,8 +4,8 @@ import { HttpHeaders, HttpParams } from '@angular/common/http';
 
 import { DataTableCriteria } from 'src/app/_shared/services/data-table/classes/data-table-criteria';
 import {UserSessionService} from 'src/app/_shared/services/http/user-session.service';
-import { environment } from 'src/environment/environment';
-// import { environment } from 'src/environment/environment.prod';
+// import { environment } from 'src/environment/environment';
+import { environment } from 'src/environment/environment.prod';
 
 
 @Injectable()
