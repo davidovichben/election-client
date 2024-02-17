@@ -46,16 +46,20 @@ export class FileUploadComponent {
   }
 
   submit(file: File, form: NgForm): void {
-    this.success = false;
-    if (form.valid && file) {
-      this.voterFileService.uploadVoterFile(file, form.value).then(response => {
+    const reader = new FileReader();
+
+    reader.onload = () => {
+      const base64StringFile = reader.result as string;
+      this.voterFileService.uploadVoterFile(base64StringFile, form.value).then(response => {
         this.success = true;
 
         if (response) {
           console.log(response)
-         this.success = true;
+          this.success = true;
         }
       });
-    }
+    };
+
+    reader.readAsDataURL(file);
   }
 }

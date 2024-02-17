@@ -79,6 +79,7 @@ export class VotersComponent {
   }
 
   exportVoters() {
+    // @ts-ignore
     this.voterFileService.exportVotersExcel()
       .then((file: File | null) => {
         if (file) {

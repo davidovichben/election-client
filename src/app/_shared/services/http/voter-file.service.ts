@@ -29,19 +29,12 @@ export class VoterFileService extends BaseHttpService {
       .catch(() => null);
   }
 
-  uploadVoterFile(file: File, values: object): Promise<boolean> {
+  uploadVoterFile(base64StringFile: string, values: object): Promise<boolean> {
     const formData = new FormData();
     formData.append('values', JSON.stringify(values));
-    formData.append('file', file);
-
-    const headers = new HttpHeaders({
-      'Content-Type': 'multipart/form-data',
-    });
-
-    const options = { headers };
-
+    formData.append('file', base64StringFile);
     return this.http
-      .post(this.endPoint + '/upload', formData, this.getBlobRequest())
+      .post(this.endPoint + '/uploadFile', formData, this.getTokenRequest())
       .toPromise()
       .then(() => true)
       .catch(() => false);
