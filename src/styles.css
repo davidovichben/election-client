@@ -41,6 +41,16 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; direction: 
   color: white;
 }
 
+.light-red {
+  background-color: #f9c6c6;
+  color: #ff5771;
+}
+
+.light-yellow {
+  background-color: #fff2c2;
+  color: #ffc800;
+}
+
 .yellow {
   background-color: #ffc800;
   color: white;

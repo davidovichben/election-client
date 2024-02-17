@@ -56,9 +56,9 @@ export class VotersComponent {
       case 'supporter':
         return 'light-green';
       case 'opponent':
-        return 'red';
+        return 'light-red';
       case 'undecided':
-        return 'yellow';
+        return 'light-yellow';
       case 'abstainer':
         return 'grey';
       default:
