@@ -47,7 +47,7 @@ export class VoterService extends BaseHttpService {
     return this.http.put(this.endPoint + '/' + voterId, field, this.getTokenRequest())
       .toPromise()
       .then(response => response)
-      .catch(() => false);
+      .catch(err => err);
   }
 
   multipleUpdate(checkedItems: any[], values: object): Promise<boolean> {

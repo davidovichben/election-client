@@ -24,10 +24,15 @@ export class VotesCountFormComponent {
     // @ts-ignore
     this.candidatesSelect = this.router.snapshot.data.candidates;
   }
-  submitForm() {
-    this.ballotService.addVotes(this.formData).then(response => {
+  submitForm(entity: 'candidate'|'party') {
+    const values = {
+      entity,
+      value: this.formData[entity + 'Id']
+    };
+
+    this.ballotService.addVotes(values).then(response => {
       this.notifications.success('הצבעה נרשמה בהצלחה');
-      this.formData = {};
+      this.formData[entity + 'Id'] = null;
     })
   }
 

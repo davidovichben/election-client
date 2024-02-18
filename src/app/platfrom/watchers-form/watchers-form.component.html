@@ -1,4 +1,5 @@
 <div style="padding: 50px">
+  <p class="pbutton" routerLink="update-votes">עדכון ספירת קולות בזמן אמת</p>
   <div class="d-flex justify-content-between">
     <h1>פרטי מצביע</h1>
     <fa-icon class="ml-2 pointer" (click)="signOut()" [icon]="faSignOut">התנתקות</fa-icon>
@@ -18,7 +19,9 @@
       <p><strong>מספר סידורי:</strong> {{ user.serialNumber }}</p>
       <p><strong>הצביע:</strong> {{ user.voted == 1 ? 'כן' : 'לא'}}</p>
     </div>
-    <mat-checkbox [ngModelOptions]="{ standalone: true }" style="font-size: 18px; margin-top: 15px" class="full-width mt-3" [(ngModel)]="voted">הגיע להצביע</mat-checkbox>
-    <p class="pbutton" (click)="submitForm()">עדכן</p>
+    <div *ngIf="user?.IDNumber">
+      <mat-checkbox [ngModelOptions]="{ standalone: true }" style="font-size: 18px; margin-top: 15px" class="full-width mt-3" [(ngModel)]="voted">הגיע להצביע</mat-checkbox>
+      <p class="pbutton" (click)="submitForm()">עדכן</p>
+    </div>
   </form>
 </div>

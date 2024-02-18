@@ -4,6 +4,7 @@ import {HttpClient, HttpHeaders} from '@angular/common/http';
 
 import {BaseHttpService} from "src/app/_shared/services/http/base-http.service";
 import {UserSessionService} from "src/app/_shared/services/http/user-session.service";
+import {DataTableCriteria} from "../data-table/classes/data-table-criteria";
 
 @Injectable()
 export class VoterFileService extends BaseHttpService {
@@ -22,8 +23,10 @@ export class VoterFileService extends BaseHttpService {
       .catch(() => null);
   }
 
-  exportVotersExcel(): Promise<File|null> {
-    return this.http.get(this.endPoint + '/export', this.getBlobRequest())
+  exportVotersExcel(criteria: DataTableCriteria): Promise<File|null> {
+    const params = this.getDataTableParams(criteria);
+
+    return this.http.post(this.endPoint + '/export', params, this.getBlobRequest())
       .toPromise()
       .then(response => response as File)
       .catch(() => null);

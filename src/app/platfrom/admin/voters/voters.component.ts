@@ -80,7 +80,7 @@ export class VotersComponent {
 
   exportVoters() {
     // @ts-ignore
-    this.voterFileService.exportVotersExcel()
+    this.voterFileService.exportVotersExcel(this.dataTable.criteria)
       .then((file: File | null) => {
         if (file) {
           const blobUrl = URL.createObjectURL(file);

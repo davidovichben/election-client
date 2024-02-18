@@ -1,26 +1,27 @@
 <div class="voting-form">
   <h2>טופס ספירת הצבעות</h2>
 
-  <form (ngSubmit)="submitForm()" #votingForm="ngForm">
+  <form>
     <mat-form-field class="form-group">
       <mat-label>הצבעה למועמד</mat-label>
-      <mat-select name="candidateId" [(ngModel)]="formData.candidateId" required>
+      <mat-select name="candidateId" [(ngModel)]="formData.candidateId">
         <mat-option *ngFor="let candidate of candidatesSelect" [value]="candidate.id">
           {{ candidate.name }}
         </mat-option>
       </mat-select>
     </mat-form-field>
 
-    <mat-form-field class="form-group">
+    <button mat-button (click)="submitForm('candidate')" type="button" [disabled]="!formData.candidateId">הוסף הצבעה למועמד</button>
+
+    <mat-form-field class="form-group mt-3">
       <mat-label>הצבעה לרשימה</mat-label>
-      <mat-select name="partyId" [(ngModel)]="formData.partyId" required>
+      <mat-select name="partyId" [(ngModel)]="formData.partyId">
         <mat-option *ngFor="let party of partiesSelect" [value]="party.id">
           {{ party.name }}
         </mat-option>
       </mat-select>
     </mat-form-field>
 
-    <button mat-button type="submit" [disabled]="!votingForm.valid">הוסף</button>
-<!--    <button mat-raised-button (click)="reverseLastAction()">בטל את הפעולה האחרונה</button>-->
+    <button mat-button (click)="submitForm('party')" type="button" [disabled]="!formData.partyId">הוסף הצבעה לרשימה</button>
   </form>
 </div>

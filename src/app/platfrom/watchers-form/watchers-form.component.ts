@@ -36,9 +36,11 @@ export class WatchersFormComponent {
 
     if (this.user) {
       const values = { isVoted: this.voted }
-      this.userService.updateVoter(this.user.id, values).then(() => {
-        this.showNotFoundMessage = true;
-        this.router.navigateByUrl('/users');
+      this.userService.updateVoter(this.user.id, values).then(response => {
+        if (response) {
+          this.notification.success('העדכון בוצע בהצלחה');
+          this.user = null;
+        }
       });
     }
   }
